@@ -5,21 +5,21 @@
 class Tfprovidercheck < Formula
   desc "Censor Terraform Providers"
   homepage "https://github.com/suzuki-shunsuke/tfprovidercheck"
-  version "1.0.3"
+  version "1.0.4"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.3/tfprovidercheck_darwin_amd64.tar.gz"
-      sha256 "f8621753a5daa1baf102a6ecc98977b645b55ac1339493c2974d4c47edcb970b"
+      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.4/tfprovidercheck_darwin_amd64.tar.gz"
+      sha256 "97b168b08b02b9e00757a2bea94755cfbef753307d4204ff884ed7763e229d58"
 
       def install
         bin.install "tfprovidercheck"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.3/tfprovidercheck_darwin_arm64.tar.gz"
-      sha256 "688b7d7120e058018276c198d3d22aea94d49a3b4a98031063f3b8300a97261a"
+      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.4/tfprovidercheck_darwin_arm64.tar.gz"
+      sha256 "d9b434ddcf67598660372c8af5fc8b9dbde20cebdc5c1971af75ddcf0aee42e3"
 
       def install
         bin.install "tfprovidercheck"
@@ -30,8 +30,8 @@ class Tfprovidercheck < Formula
   on_linux do
     if Hardware::CPU.intel?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.3/tfprovidercheck_linux_amd64.tar.gz"
-        sha256 "8132aa60ba845307e3a1ae33421d368e5bc3ccb3e6546ac6a141c3a9c794c45c"
+        url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.4/tfprovidercheck_linux_amd64.tar.gz"
+        sha256 "0adf02dcb8ca9ad07986f880347ebc348a73b850d8b8b8477b7fa5d5147c0b61"
 
         def install
           bin.install "tfprovidercheck"
@@ -40,8 +40,8 @@ class Tfprovidercheck < Formula
     end
     if Hardware::CPU.arm?
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.3/tfprovidercheck_linux_arm64.tar.gz"
-        sha256 "a8afcb97b9e34127c9f6dc0ea954cd4a36064b370b8f7755928e455ab1fadc96"
+        url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.4/tfprovidercheck_linux_arm64.tar.gz"
+        sha256 "fb84129d9439c64fe61880c90bfea0574e0f72ae1419cd7bffa016045c4e2c19"
 
         def install
           bin.install "tfprovidercheck"
