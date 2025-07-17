@@ -2,7 +2,7 @@
 cask "tfprovidercheck" do
   desc "Censor Terraform Providers"
   homepage "https://github.com/suzuki-shunsuke/tfprovidercheck"
-  version "1.0.5"
+  version "1.0.6"
 
   livecheck do
     skip "Auto-generated on release."
@@ -12,23 +12,29 @@ cask "tfprovidercheck" do
 
   on_macos do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.5/tfprovidercheck_darwin_amd64.tar.gz"
-      sha256 "1100dde96072d5d05f1ba2b172373ea702c7a4fff253db27328b1fc688b3c0fb"
+      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.6/tfprovidercheck_darwin_amd64.tar.gz"
+      sha256 "3a851a53dd6d1c085f532765abeaf623f7a3a669d7ba28d7dfcfdae41c22a61a"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.5/tfprovidercheck_darwin_arm64.tar.gz"
-      sha256 "09470000c8531d76bf3289a9534db874310346220f06439d1129be4e9b04184d"
+      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.6/tfprovidercheck_darwin_arm64.tar.gz"
+      sha256 "8d2a76242564a661b22390eaec6f0da772b0737f8d1484a98769043db85125e7"
     end
   end
 
   on_linux do
     on_intel do
-      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.5/tfprovidercheck_linux_amd64.tar.gz"
-      sha256 "44b115e93f603b2434835830c75947a9c785fc639dd50b716ff4395d956047f1"
+      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.6/tfprovidercheck_linux_amd64.tar.gz"
+      sha256 "2520102b64cf797476b2c96f9ef285494af258c175bc945c52ae412681efc48d"
     end
     on_arm do
-      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.5/tfprovidercheck_linux_arm64.tar.gz"
-      sha256 "cb515620b53a2ce863501e7f4fee029c3a4be7c2d5e19fd37279b41f238a95aa"
+      url "https://github.com/suzuki-shunsuke/tfprovidercheck/releases/download/v1.0.6/tfprovidercheck_linux_arm64.tar.gz"
+      sha256 "d5a545ce94091dfe625c87dd75a380f909896d92215d82d78854959955fa5fda"
+    end
+  end
+
+  postflight do
+    if system_command("/usr/bin/xattr", args: ["-h"]).exit_status == 0
+      system_command "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "#{staged_path}/tfprovidercheck"]
     end
   end
 
